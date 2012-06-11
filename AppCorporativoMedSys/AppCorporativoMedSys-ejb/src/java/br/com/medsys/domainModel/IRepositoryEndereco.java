@@ -10,12 +10,9 @@ import java.util.List;
  *
  * @author Thais
  */
-public interface IRepositoryEndereco implements IRepository<Endereco>{
+public interface IRepositoryEndereco extends IRepository<Endereco>{
     
-    List<Endereco> getTodos(){
-    
-        return Endereco;
-    }
-    
+   List<Endereco> listarPorDescricao(String descricao);
+   List<Endereco> listarPorcep(String CEP);
     
 }

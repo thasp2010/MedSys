@@ -4,15 +4,18 @@
  */
 package br.com.medsys.domainModel;
 
+import java.util.List;
+
 /**
  *
  * @author Thais
  */
 public interface IRepository <T>{
     
-    boolean Salvar(T obj);
-    boolean Apagar(T obj);
-    T Abrir (long k)throws Exception;
+  void salvar(T obj);
+  T abrir (long id);
+  void apagar (T obj);
+  List<T> listarTodos();
     
     
 }

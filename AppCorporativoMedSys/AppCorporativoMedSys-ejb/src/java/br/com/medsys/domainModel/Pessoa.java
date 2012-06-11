@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author Thais
  */
-public class  Pessoa {
+public abstract class  Pessoa {
     
     
    private String Nome;
@@ -18,6 +18,15 @@ public class  Pessoa {
    private int Codigo;
    private int Telefone;
    private Date DataNasc;
+   private String endereco;
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
     public int getCodigo() {
         return Codigo;
