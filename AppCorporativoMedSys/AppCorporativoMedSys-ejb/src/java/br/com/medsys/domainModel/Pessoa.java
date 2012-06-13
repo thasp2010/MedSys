@@ -4,36 +4,46 @@
  */
 package br.com.medsys.domainModel;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.*;
 
 /**
  *
  * @author Thais
  */
-public abstract class  Pessoa {
+@Entity
+@Inheritance
+public class Pessoa implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+   
+    @Column
+    private String Nome;
+    
+    @Column
+    private String Cpf;
+    //private int Codigo;
+    
+    @Column
+    private int Telefone;
+    
+    @Column
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date DataNasc;
+    
+    @Column
+    private String endereco;
     
     
-   private String Nome;
-   private String Cpf;
-   private int Codigo;
-   private int Telefone;
-   private Date DataNasc;
-   private String endereco;
-
-    public String getEndereco() {
-        return endereco;
+    public Long getId() {
+        return id;
     }
 
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public int getCodigo() {
-        return Codigo;
-    }
-
-    public void setCodigo(int Codigo) {
-        this.Codigo = Codigo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCpf() {
@@ -67,6 +77,63 @@ public abstract class  Pessoa {
     public void setTelefone(int Telefone) {
         this.Telefone = Telefone;
     }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pessoa other = (Pessoa) obj;
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
+            return false;
+        }
+        if ((this.Nome == null) ? (other.Nome != null) : !this.Nome.equals(other.Nome)) {
+            return false;
+        }
+        if ((this.Cpf == null) ? (other.Cpf != null) : !this.Cpf.equals(other.Cpf)) {
+            return false;
+        }
+        if (this.Telefone != other.Telefone) {
+            return false;
+        }
+        if (this.DataNasc != other.DataNasc && (this.DataNasc == null || !this.DataNasc.equals(other.DataNasc))) {
+            return false;
+        }
+        if ((this.endereco == null) ? (other.endereco != null) : !this.endereco.equals(other.endereco)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 59 * hash + (this.id != null ? this.id.hashCode() : 0);
+        hash = 59 * hash + (this.Nome != null ? this.Nome.hashCode() : 0);
+        hash = 59 * hash + (this.Cpf != null ? this.Cpf.hashCode() : 0);
+        hash = 59 * hash + this.Telefone;
+        hash = 59 * hash + (this.DataNasc != null ? this.DataNasc.hashCode() : 0);
+        hash = 59 * hash + (this.endereco != null ? this.endereco.hashCode() : 0);
+        return hash;
+    }
     
+    
+
+   
+    @Override
+    public String toString() {
+        return "br.com.medsys.domainModel.Pessoa[ id=" + id + " ]";
+    }
     
 }
