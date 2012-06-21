@@ -10,10 +10,8 @@ import java.util.List;
  *
  * @author Thais
  */
-public interface IRepositoryEndereco extends IRepository<Endereco>{
+public interface IRepositoryUsuarios extends IRepository <Usuarios> {
     
-   List<Endereco> listarPorCidade(String Cidade);
-   List<Endereco> listarPorcep(String CEP);
-   
+    List <Usuarios> ListarPorNome (String NomeUsuario);
     
 }

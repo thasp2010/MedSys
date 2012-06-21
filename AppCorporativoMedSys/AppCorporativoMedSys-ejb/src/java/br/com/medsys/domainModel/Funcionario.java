@@ -12,14 +12,14 @@ import javax.persistence.*;
  * @author Thais
  */
 @Entity
-@Table (name = "Paciente")
-public class Paciente extends Pessoa implements Serializable {
+@Table (name = "Funcionario")
+public class Funcionario extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-        
+   
     @Override
     public Long getId() {
         return id;
@@ -40,10 +40,10 @@ public class Paciente extends Pessoa implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Paciente)) {
+        if (!(object instanceof Funcionario)) {
             return false;
         }
-        Paciente other = (Paciente) object;
+        Funcionario other = (Funcionario) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -52,7 +52,7 @@ public class Paciente extends Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.medsys.domainModel.Paciente[ id=" + id + " ]";
+        return "br.com.medsys.domainModel.Funcionario[ id=" + id + " ]";
     }
     
 }

@@ -13,7 +13,8 @@ import javax.persistence.*;
  * @author Thais
  */
 @Entity
-@Inheritance
+@Inheritance(strategy= InheritanceType.JOINED)
+@Table (name = "Pessoa")
 public class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -25,7 +26,7 @@ public class Pessoa implements Serializable {
     
     @Column
     private String Cpf;
-    //private int Codigo;
+    
     
     @Column
     private int Telefone;
@@ -36,6 +37,7 @@ public class Pessoa implements Serializable {
     
     @Column
     private String endereco;
+    
     
     
     public Long getId() {

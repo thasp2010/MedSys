@@ -4,16 +4,14 @@
  */
 package br.com.medsys.domainModel;
 
+import java.util.Date;
 import java.util.List;
 
 /**
  *
  * @author Thais
  */
-public interface IRepositoryEndereco extends IRepository<Endereco>{
+public interface IRepositoryConsulta extends IRepository <Consulta> {
     
-   List<Endereco> listarPorCidade(String Cidade);
-   List<Endereco> listarPorcep(String CEP);
-   
-    
+    List <Consulta> ListarPorData (Date DataConsulta);
 }
