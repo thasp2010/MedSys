@@ -5,11 +5,13 @@
 package br.com.medsys.domainModel;
 
 import java.util.List;
+import javax.ejb.Remote;
 
 /**
  *
  * @author Thais
  */
+@Remote
 public interface IRepositoryMedico  extends IRepository <Medico>{
     
     List <Medico> ListarPorNome (String nome);
