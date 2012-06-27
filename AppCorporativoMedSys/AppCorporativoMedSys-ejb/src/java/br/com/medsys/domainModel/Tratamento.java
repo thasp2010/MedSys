@@ -13,7 +13,7 @@ import javax.persistence.*;
  * @author Thais
  */
 @Entity
-@Table(name="Servico")
+@Table(name="Tratamentos")
 public class Tratamento implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id

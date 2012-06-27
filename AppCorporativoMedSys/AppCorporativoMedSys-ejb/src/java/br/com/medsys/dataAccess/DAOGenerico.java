@@ -22,8 +22,8 @@ public abstract class DAOGenerico <T> implements IRepository <T> {
     
     @Override
     public void salvar(T obj) {
-        manager.persist(obj);
-        manager.refresh(obj);
+        manager.merge(obj);
+        manager.flush();
     }
 
     @Override

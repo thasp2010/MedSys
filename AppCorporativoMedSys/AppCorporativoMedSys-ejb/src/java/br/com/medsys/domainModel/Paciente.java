@@ -12,11 +12,12 @@ import javax.persistence.*;
  * @author Thais
  */
 @Entity
-@Table (name = "Paciente")
+@Table (name = "Pacientes")
 public class Paciente extends Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="PacienteID")
     private Long id;
     
         

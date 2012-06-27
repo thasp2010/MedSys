@@ -11,7 +11,6 @@ import javax.ejb.Stateful;
  * @author Thais
  */
 @Stateful
-
 public class UsuariosDAO extends DAOGenerico <Usuarios> implements IRepositoryUsuarios {
 
     public UsuariosDAO(){

@@ -14,11 +14,12 @@ import javax.persistence.*;
  */
 @Entity
 @Inheritance(strategy= InheritanceType.JOINED)
-@Table (name = "Pessoa")
+@Table (name = "Pessoas")
 public class Pessoa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="PessoaID")
     private Long id;
    
     @Column
