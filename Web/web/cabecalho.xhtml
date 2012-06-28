@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-AU"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <div>   
+            <h:form>
+                
+                <p:growl id="messages"/>
+                <p:menubar>
+                    <p:menuitem value="Home" url="index.xhtml"/>
+                    <p:submenu label="Cadastro" url="#">
+                        <p:menuitem value="Paciente" url="exercicios.xhtml" />
+                        <p:separator />
+                        <p:menuitem value="Iniciar novo" url="#" />
+                    </p:submenu>
+
+                    <p:submenu label="Agendar" icon="ui-icon-pencil">
+                        <p:menuitem value="Undo" url="#" icon="ui-icon-arrowreturnthick-1-w" />
+                        <p:menuitem value="Redo" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+                    </p:submenu>
+                    <p:menuitem value="Login" url="login.xhtml" />
+                    <p:menuitem value="Registrar" url="registrar.xhtml" />
+                </p:menubar>
+            </h:form>
+    </div>
+</html>
