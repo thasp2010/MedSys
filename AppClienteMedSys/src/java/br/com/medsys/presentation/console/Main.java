@@ -3,6 +3,8 @@ package br.com.medsys.presentation.console;
 
 import br.com.medsys.domainModel.Funcionario;
 import br.com.medsys.domainModel.IRepositoryFuncionario;
+import br.com.medsys.domainModel.IRepositoryTratamento;
+import br.com.medsys.domainModel.Tratamento;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.Context;
@@ -20,7 +22,7 @@ public class Main {
         try {
             
             Context context = new InitialContext();
-            IRepositoryFuncionario FuncionarioEjb =(IRepositoryFuncionario) context.lookup("java:global/AppCorporativoMedSys/AppCorporativoMedSys-ejb/FuncionarioDAO");
+            IRepositoryTratamento TratamentoEjb =(IRepositoryTratamento) context.lookup("java:global/AppCorporativoMedSys/AppCorporativoMedSys-ejb/TratamentoDAO");
             
                // context.lookup("java:global/AppCorporativoMedSys-ejb/UsuariosDAO");               
                
@@ -31,11 +33,11 @@ public class Main {
             usuario.setResponsavel("Tarcisio ");
             UsuariosEjb.salvar(usuario);*/
             
-            Funcionario func = new Funcionario();
-            func.setNome("Tarcisio");
-            func.setCpf("80984059840");
-            func.setEndereco("Rua 2");
-            FuncionarioEjb.salvar(func);
+            Tratamento trat = new Tratamento();
+            
+            trat.setValor(1234);
+            
+            TratamentoEjb.salvar(trat);
         }catch (NamingException a)      {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE,null,a);
         }
