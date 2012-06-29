@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Agendamento de Consulta</title>
+    </h:head>
+    <h:body>
+        
+    </h:body>
+  
+    <h:form>  
+              
+   
+        <p:panel id ="panel" header="Agendamento de Consulta"> 
+        
+        <h3>Dados do Paciente</h3> 
+        
+       
+        <p:focus context="panel"/>  
+          
+        <p:messages />  
+          
+        <h:panelGrid columns="3">  
+            <h:outputLabel for="firstname" value="Nome: *" />  
+            <p:inputText id="firstname" required="true" label="Firstname"  
+                    value="#{personBean.firstname}" >  
+                <f:validateLength minimum="2" />  
+            </p:inputText>  
+            <p:message for="firstname" />  
+              
+            <h:outputLabel for="surname" value="Documento: *" />  
+            <p:inputText id="surname" required="true" label="Surname"  
+                    value="#{personBean.surname}" />  
+            <p:message for="surname" />  
+          </h:panelGrid> 
+        
+        <h3> Dados da Consulta </h3>
+         <p:focus context="panel"/> 
+         <p:messages /> 
+         <h:panelGrid> 
+             <h:outputLabel value="Valor:"/>
+        <p:inputText />
+        <h:outputText value="Data:"/>
+        <p:inputText/>
+        <h:outputText value="Médico:"/>
+        <p:inputText/>
+        <h:outputText value="Especialidade:"/>
+        <p:inputText/>
+        </h:panelGrid> 
+          
+        <p:commandButton value="Salvar" update="panel"   
+                    actionListener="#{personBean.savePerson}" />  
+    </p:panel>  
+        
+       <p:progressBar id="progressBarClient" widgetVar="pbClient" style="width:300px"/>  
+  
+</h:form>  
+               
+                          
+    
+</html>
+
