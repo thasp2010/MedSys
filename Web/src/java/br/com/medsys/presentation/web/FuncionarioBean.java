@@ -17,7 +17,8 @@ import javax.inject.Named;
 @SessionScoped
 public class FuncionarioBean implements Serializable {
 
-    @EJB IRepositoryFuncionario ejb;
+    @EJB
+    IRepositoryFuncionario ejb;
     
     String Nome, cpf , endereco ;
     int Telefone;

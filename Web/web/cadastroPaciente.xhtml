@@ -4,78 +4,77 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.prime.com.tr/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    
+
     <h:head>
         <title>Cadastro de Paciente </title>
     </h:head>
     <h:body>
-        
-    </h:body>
-    
-    <h:form>  
-        
-  
-        <p:panel header="Cadastro de Paciente">  
-        <h:panelGrid columns="2" cellpadding="3">
-            <h:outputText value =" Nome:" />
-            <p:inputText/>
-            <h:outputText value="Data Nasc.: " />  
-            <p:inputMask value="#{maskController.date}" mask="99/99/9999"/>  
-            <h:outputText value="CPF: " />  
-            <p:inputMask value="#{maskController.taxId}" mask="999.999.999-99"/>
-            <h:outputText value="Telefone: " />  
-            <p:inputMask value="#{maskController.phone}" mask="(99) 9999-9999"/>  
 
-        </h:panelGrid>  
-    </p:panel>  
-      
+    </h:body>
+
+    <h:form>  
+
+        <ui:include src="cabecalho.xhtml" />
+        <p:panel header="Cadastro de Paciente">  
+            <h:panelGrid columns="2" cellpadding="3">
+                <h:outputText value =" Nome:" />
+                <p:inputText value="#{paciente.nome}"/>
+                <h:outputText value="Data Nasc.: " />  
+                <p:inputMask value="#{paciente.data}" mask="99/99/9999"/>  
+                <h:outputText value="CPF: " />  
+                <p:inputMask value="#{paciente.cpf}" mask="999.999.999-99"/>
+                <h:outputText value="Telefone: " />  
+                <p:inputMask value="#{paciente.telefone}" mask="(99) 9999-9999"/>  
+            </h:panelGrid>  
+        </p:panel>  
+
         <p:panel header="Endereço">  
-        <h:panelGrid columns="2" cellpadding="5">
-            <h:outputText value =" Rua" />
-            <p:inputText/>
-            <h:outputText value="Numero: " />  
-            <p:inputText/> 
-            <h:outputText value="Bairro: " />  
-            <p:inputText/> 
-            <h:outputText value="Cidade: " />  
-            <p:inputText/> 
-            <h:outputText value="CEP: " />  
-            <p:inputMask value="#{maskController.taxId}" mask="99.999-999"/>
-            
-            <p:commandButton value="Limpar" type="reset" />  
-            <p:commandButton value="Cadastrar" update="display" oncomplete="dialog.show()"/>  
-        
-  
-        </h:panelGrid>  
-    </p:panel>  
-        
+            <h:panelGrid columns="2" cellpadding="5">
+                <h:outputText value =" Rua" />
+                <p:inputText value="#{endereco.rua}"/>
+                <h:outputText value="Numero: " />  
+                <p:inputText value="#{endereco.numero}"/> 
+                <h:outputText value="Bairro: " />  
+                <p:inputText value="#{endereco.bairro}" /> 
+                <h:outputText value="Cidade: " />  
+                <p:inputText value="#{endereco.cidade}"/> 
+                <h:outputText value="CEP: " />  
+                <p:inputMask value="#{endereco.cep}" mask="99.999-999"/>
+
+                <p:commandButton value="Limpar" type="reset" />  
+                <p:commandButton value="Cadastrar" update="display" oncomplete="dialog.show()" action="#{paciente.salvar()}"/>  
+
+
+            </h:panelGrid>  
+        </p:panel>  
+
         <p:dialog widgetVar="dialog" modal="true" >  
-        <h:panelGrid id="display" columns="2" cellpadding="5">  
-      
-            <h:outputText value="Date: " />  
-            <h:outputText value="#{maskController.date}" />  
-              
-            <h:outputText value="Phone: " />  
-            <h:outputText value="#{maskController.phone}" />  
-              
-            <h:outputText value="Phone with Ext: " />  
-            <h:outputText value="#{maskController.phoneExt}"/>  
-              
-            <h:outputText value="taxId: " />  
-            <h:outputText value="#{maskController.taxId}" />  
-              
-            <h:outputText value="SSN: " />  
-            <h:outputText value="#{maskController.ssn}" />  
-              
-            <h:outputText value="Product Key: " />  
-            <h:outputText value="#{maskController.productKey}" />  
-      
-        </h:panelGrid>  
-    </p:dialog>  
-      
-</h:form>  
-    
-    
-    
+            <h:panelGrid id="display" columns="2" cellpadding="5">  
+
+                <h:outputText value="Date: " />  
+                <h:outputText value="#{maskController.date}" />  
+
+                <h:outputText value="Phone: " />  
+                <h:outputText value="#{maskController.phone}" />  
+
+                <h:outputText value="Phone with Ext: " />  
+                <h:outputText value="#{maskController.phoneExt}"/>  
+
+                <h:outputText value="taxId: " />  
+                <h:outputText value="#{maskController.taxId}" />  
+
+                <h:outputText value="SSN: " />  
+                <h:outputText value="#{maskController.ssn}" />  
+
+                <h:outputText value="Product Key: " />  
+                <h:outputText value="#{maskController.productKey}" />  
+
+            </h:panelGrid>  
+        </p:dialog>  
+
+    </h:form>  
+
+
+
 </html>
 

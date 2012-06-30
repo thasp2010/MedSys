@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.prime.com.tr/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Listagem de Usuários</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <ui:include src="cabecalho.xhtml" />
+            <p:dataTable value="#{usuarios.listagem}" var="item">
+                <f:facet name="header">
+                        <h:outputText value="Listagem de Usuarios" />
+                    </f:facet>
+                <p:column filterBy="#{item.id}" sortBy="#{item.id}">
+                    <f:facet name="id">
+                        <h:outputText value="ID" />
+                    </f:facet>
+                    <h:outputText value="#{item.id}" />
+                </p:column>
+                <p:column filterBy="#{item.nome}" sortBy="#{item.nome}">
+                    <f:facet name="nome">
+                        <h:outputText value="Nome" />
+                    </f:facet>
+                    <h:outputText value="#{item.nome}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

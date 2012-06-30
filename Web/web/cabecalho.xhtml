@@ -3,9 +3,6 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:p="http://primefaces.prime.com.tr/ui">
     <div>   
-            <h:form>
-                
-                <p:growl id="messages"/>
                 <p:menubar>
                     <p:menuitem value="Home" url="index.xhtml"/>
                     <p:submenu label="Cadastro" url="#">
@@ -15,19 +12,18 @@
                         <p:separator/>
                         <p:menuitem value="Funcionario" url="cadastroFuncionario.xhtml" />
                         <p:separator />
-                        <p:menuitem value="Usuario" url="cadastroUsuarios.xhtml" />
+                        <p:menuitem value="Usuario" url="cadastroUsuario.xhtml" />
                         <p:separator />
-                        <p:menuitem value="Servicos" url="cadastroServicos.xhtml" />
+                        <p:menuitem value="Servicos" url="cadastroServico.xhtml" />
                         <p:separator />
                     </p:submenu>
 
                     <p:submenu label="Agendar" url="agendarConsulta.xhtml">
                         <p:menuitem value="Consulta" url="agendarConsulta.xhtml" icon="ui-icon-arrowreturnthick-1-w" />
-                        <p:menuitem value="Tratamento" url="CadastroTratamento.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
+                        <p:menuitem value="Tratamento" url="agendarTratamento.xhtml" icon="ui-icon-arrowreturnthick-1-e" />
                     </p:submenu>
                     <p:menuitem value="Pesquisa" url="login.xhtml" />
                     <p:menuitem value="Relatório" url="registrar.xhtml" />
                 </p:menubar>
-            </h:form>
     </div>
 </html>

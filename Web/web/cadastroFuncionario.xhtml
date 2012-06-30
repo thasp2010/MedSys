@@ -3,44 +3,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.prime.com.tr/ui"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
     
     <h:head>
         <title>Cadastro de Funcionarios </title>
     </h:head>
     <h:body>
         
-    </h:body>
+    
     
     <h:form>  
         
-  
+        <ui:include src="cabecalho.xhtml" />
         <p:panel header="Cadastro de Funcionario">  
         <h:panelGrid columns="2" cellpadding="3">
             <h:outputText value =" Nome:" />
             <p:inputText value="#{Funcionario.nome}"/>
             <h:outputText value="Data Nasc.: " />  
-            <p:inputMask value="#{Funcionario.dataNasc}" mask="99/99/9999"/>  
+            <p:calendar value="#{Funcionario.dataNasc}" >
+                <f:convertDateTime locale="pt-BR" />
+            </p:calendar>  
             <h:outputText value="CPF: " />  
-            <p:inputMask value="#{Funcionario.cpf}" mask="999.999.999-99"/>
+           <!-- <p:inputMask value="#{Funcionario.cpf}" mask="999.999.999-99"/>
             <h:outputText value="Telefone: " />  
-            <p:inputMask value="#{Funcionario.telefone}" mask="(99) 9999-9999"/>  
-            <p:commandButton action="#{Funcionario.salvar()}"/> 
+            <p:inputMask value="#{Funcionario.telefone}" mask="(99) 9999-9999"/>  -->
+            <p:commandButton  ajax="false" value="Salvar" action="#{Funcionario.salvar()}"/> 
         </h:panelGrid>  
     </p:panel>  
       
         <p:panel header="Endereço">  
         <h:panelGrid columns="2" cellpadding="5">
             <h:outputText value =" Rua" />
-            <p:inputText/>
+            <p:inputText value="#{endereco.rua}"/>
             <h:outputText value="Numero: " />  
-            <p:inputText/> 
+            <p:inputText value="#{endereco.numero}"/> 
             <h:outputText value="Bairro: " />  
-            <p:inputText/> 
+            <p:inputText value="#{endereco.bairro}"/> 
             <h:outputText value="Cidade: " />  
-            <p:inputText/> 
+            <p:inputText value="#{endereco.cidade}"/> 
             <h:outputText value="CEP: " />  
-            <p:inputMask value="#{maskController.taxId}" mask="99.999-999"/>
+            <p:inputMask value="#{endereco.cep}" mask="99.999-999"/>
             
             <p:commandButton value="Limpar" type="reset" />  
              <p:commandButton value="Cadastrar" update="display" oncomplete="dialog.show()" action="#{Funcionario.salvar()}" />
@@ -75,7 +78,7 @@
       
 </h:form>  
     
-    
+    </h:body>
     
 </html>
 

@@ -21,7 +21,7 @@ public abstract class DAOGenerico <T> implements IRepository <T> {
     private Class tipo;
     
     @Override
-    public void salvar(T obj) {
+    public void salvar(T obj){
         manager.merge(obj);
         manager.flush();
     }

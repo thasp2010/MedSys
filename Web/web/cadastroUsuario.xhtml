@@ -2,30 +2,34 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.prime.com.tr/ui">
     <h:head>
         <title>Cadastro de Usuario</title>
     </h:head>
     <h:body>
         <h1>
-        Cadastro de Usuario
+            Cadastro de Usuario
         </h1>    
+        <h:form>
+            <ui:include src="cabecalho.xhtml" />
+            <h:panelGrid>
+                <h:outputText value="Login" />
+                <p:inputText id="txtNome" value="#{usuarios.nome}" />
+                <h:outputText value="Responsável"/>
+                <h:selectOneRadio>
+                    <f:selectItem itemLabel="Funcionário"/>
+                    <f:selectItem itemLabel="Médico"/>
+                </h:selectOneRadio>
+                <h:outputText value="Nome"/>
+                <p:inputText value="#{usuarios.responsavel}"/>
+                <h:outputText value="Senha"/>
+                <h:inputSecret  />
+                <p:commandButton id="btnSalvar" ajax="false" value="Cadastrar" action="#{usuarios.salvar()}"/>
+            </h:panelGrid>
+        </h:form>
     </h:body>
-    <h:form>
-    <h:panelGrid>
-    <h:outputText value="Login" />
-    <h:inputText id="txtNome" value="#{usuarios.nome}" />
-    <h:outputText value="Responsável"/>
-    <h:selectOneRadio>
-        <f:selectItem itemLabel="Funcionário"/>
-        <f:selectItem itemLabel="Médico"/>
-    </h:selectOneRadio>
-    <h:outputText value="Nome"/>
-    <h:inputText />
-    <h:outputText value="Senha"/>
-    <h:inputSecret />
-    <h:commandButton value="Cadastrar" action="#{usuarios.salvar()}"/>
-    </h:panelGrid>
-    </h:form>
+
 </html>
 

@@ -5,6 +5,7 @@ import br.com.medsys.domainModel.IRepositoryUsuarios;
 import br.com.medsys.domainModel.Usuarios;
 import java.util.List;
 import javax.ejb.Stateful;
+import javax.persistence.Query;
 
 /**
  *
@@ -20,7 +21,8 @@ public class UsuariosDAO extends DAOGenerico <Usuarios> implements IRepositoryUs
 
     @Override
     public List<Usuarios> listarTodos() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Query query = manager.createQuery("select u from Usuarios u");
+        return query.getResultList();
     }
 
     @Override
